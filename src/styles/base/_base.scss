@@ -11,7 +11,11 @@ body {
 button {
   cursor: pointer;
 }
+
 button:disabled {
   cursor: default;
 }
 
+.active {
+  font-weight: bold;
+}
