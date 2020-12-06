@@ -25,6 +25,12 @@ const removeExpense = (({id} = {}) => ({
   id,
 }))
 
+const editExpense =(id, updates) => ({
+  type: 'EDIT_EXPENSE',
+  id,
+  updates
+})
+
 const demoState = {
   expenses: [{
     id: '1',
@@ -50,6 +56,16 @@ const expenseReducer = (state = expensesDefault, action) => {
       ];
     case 'REMOVE_EXPENSE':
       return state.filter(({id}) => id !== action.id)
+    case 'EDIT_EXPENSE': 
+      return state.map(expense => {
+        if (expense.id === action.id) {
+          return {
+            ...expense,
+            ...action.updates
+          }
+        }
+        return expense
+      })
     default:
       return state;
   }
@@ -64,10 +80,20 @@ const filterDefault = {
 
 const filterReducer = (state = filterDefault, action) => {
   switch (action.type) {
+    case 'SET_TEXT_FILTER': 
+      return {
+        ...state,
+        text: action.text
+      }
     default:
       return state;
   }
 }
+
+const setTextFilter = (text) => ({ 
+  type: 'SET_TEXT_FILTER',
+  text,
+})
 
 const store = createStore(combineReducers({
   expenses: expenseReducer,
@@ -85,3 +111,5 @@ const Hotel = store.dispatch(addExpense({descriptor: 'Hotel', amount: 1000}));
 
 console.log(Hotel.expenses.id)
 store.dispatch(removeExpense({id: Hotel.expenses.id}))
+store.dispatch(editExpense(Rent.expenses.id, {amount: 500}));
+store.dispatch(setTextFilter('Another Rent'))
