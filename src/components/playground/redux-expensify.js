@@ -111,6 +111,22 @@ const filterReducer = (state = filterDefault, action) => {
   }
 }
 
+const getVisibleExpenses = (expenses, {text, sortBy, startDate, endDate}) => {
+  return expenses.filter(expenses => {
+    const startDateMatch = typeof startDate !== "number" || expenses.createdAt >= startDate;
+    const endDateMatch = typeof endDate !== "number" || expenses.created <= endDate;
+    const textMatch = typeof text !== "string" || expenses.description.toLowerCase().includes(text.toLowerCase());
+
+    return startDateMatch && endDateMatch && textMatch
+  }).sort((a, b) => {
+    if (sortBy === 'date') {
+      return a.createdAt < b.createdAt ? 1 : -1;
+    } else if (sortBy === 'amount') {
+      return a.amount < b.amount ? 1 : -1;
+    }
+  });
+}
+
 //filter reducer types
 const setTextFilter = (text) => ({ 
   type: 'SET_TEXT_FILTER',
@@ -142,15 +158,19 @@ const store = createStore(combineReducers({
 
 
 store.subscribe(() => {
-  console.log(store.getState());
+  const state = store.getState();
+  const visibleExpenses = getVisibleExpenses(state.expenses, state.filter);
+  console.log(visibleExpenses);
 })
 
-store.dispatch(setStartDate(123))
-store.dispatch(setEndDate(123))
+// store.dispatch(setStartDate(123))
+// store.dispatch(setEndDate(123))
 
-// const Rent = store.dispatch(addExpense({descriptor: 'Rent', amount: 100}));
-// const Hotel = store.dispatch(addExpense({descriptor: 'Hotel', amount: 1000}));
+const Rent = store.dispatch(addExpense({description: 'Rent', amount: 10000, createdAt:-1000}));
+const Hotel = store.dispatch(addExpense({description: 'Hotel', amount: 1000, createdAt:1000}));
 
+store.dispatch(sortByAmount())
+// store.dispatch(setEndDate(1250))
 // console.log(Hotel.expenses.id);
 // store.dispatch(removeExpense({id: Hotel.expenses.id}));
 // store.dispatch(editExpense(Rent.expenses.id, {amount: 500}));
