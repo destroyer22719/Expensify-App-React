@@ -13,7 +13,8 @@ class ExpenseForm extends React.Component {
     note: '',
     amount: '',
     createdAt: moment(),
-    calendarFocus: false
+    calendarFocus: false,
+    errorState: '',
   }
   onDescriptionChange = (e) => {
     const description = e.target.value;
@@ -25,22 +26,39 @@ class ExpenseForm extends React.Component {
   }
   onAmountChange = (e) => {
     const amount = e.target.value;
-    if (amount.match(/^\d*(\.\d{0,2})?$/)) {
+    if (!amount || amount.match(/^\d{1,}(\.\d{0,2})?$/)) {
       this.setState(() => ({amount}))
     }
   }
   onDateChange = (date) => {
-    this.setState(() => ({createdAt: date}))
+    if (date) this.setState(() => ({createdAt: date}))
   }
   onFocusChange = ({focused}) => {
     this.setState(() => ({
      calendarFocus: focused
     }))
   }
+  onSubmit = e => {
+    e.preventDefault()
+    if (!this.state.description || !this.state.amount) {
+      this.setState(() => ({
+        errorState: 'Cannot can have description or amount empty'
+      }))
+    } else {
+      this.setState(() => ({errorState: ''}))
+      this.props.onSubmit({
+        description: this.state.description,
+        amount: (+this.state.amount) * 100,
+        createdAt: this.state.createdAt.valueOf(),
+        note: this.state.note,
+      })
+    }
+  }
   render() {
     return (
       <div>
-        <form>
+        {<div>{this.state.errorState}</div>}
+        <form onSubmit={this.onSubmit}>
           <input 
             type="text"
             placeholder="Description" 
