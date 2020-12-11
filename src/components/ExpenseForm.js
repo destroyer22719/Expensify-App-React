@@ -8,13 +8,16 @@ const now = moment();
 console.log(now.format('MMM Do, YYYY'))
 
 class ExpenseForm extends React.Component {
-  state={
-    description: '',
-    note: '',
-    amount: '',
-    createdAt: moment(),
-    calendarFocus: false,
-    errorState: '',
+  constructor(props){
+    super(props);
+    this.state = {
+      description: props.expense.description || '',
+      note: props.expense.note || '',
+      amount: (props.expense.amount/100).toString() || '',
+      createdAt: props.expense ? moment(props.expense.createdAt) : moment(),
+      calendarFocus: false,
+      errorState: '',
+    }
   }
   onDescriptionChange = (e) => {
     const description = e.target.value;
