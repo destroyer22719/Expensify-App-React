@@ -1,7 +1,7 @@
 import React from 'react';
 
-const EditPage = () => (
-  <div>This is the edit page</div>
+const EditPage = (props) => (
+  <div>id is: {props.match.params.id}</div>
 )
 
 export default EditPage;

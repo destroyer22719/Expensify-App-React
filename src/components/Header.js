@@ -7,7 +7,7 @@ const Header = () => (
     <ul>
       <li><NavLink exact={true} to="/" activeClassName="active" >Home</NavLink></li>
       <li><NavLink exact={true} to="/create" activeClassName="active"> Create</NavLink></li>
-      <li><NavLink exact={true} to="/edit" activeClassName="active" >Edit</NavLink></li>
+      <li><NavLink to="/edit/:id" activeClassName="active" >Edit</NavLink></li>
       <li><NavLink exact={true} to="/help" activeClassName="active" >Help</NavLink></li>
     </ul>
   </header>
