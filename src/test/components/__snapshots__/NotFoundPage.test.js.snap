@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`testing the not found page 1`] = `
+<div>
+  This is Not Found 
+  <br />
+   Go to 
+  <Link
+    to="/"
+  >
+    Go Home
+  </Link>
+   Page
+</div>
+`;
+
+exports[`testing the not found page to work properly 1`] = `
+<div>
+  This is Not Found 
+  <br />
+   Go to 
+  <Link
+    to="/"
+  >
+    Go Home
+  </Link>
+   Page
+</div>
+`;

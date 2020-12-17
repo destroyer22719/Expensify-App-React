@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test for individual ExpenseListItem item 1`] = `
+<div>
+  <NavLink
+    to="/edit/1"
+  >
+    <h3>
+      Gum
+    </h3>
+  </NavLink>
+  <p>
+    Amount: 
+    <span>
+      195
+    </span>
+     | Date: 
+    <span>
+      0
+    </span>
+  </p>
+  <button
+    onClick={[Function]}
+  >
+    Remove
+  </button>
+</div>
+`;
