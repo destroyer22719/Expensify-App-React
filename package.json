@@ -10,11 +10,13 @@
     "babel-loader": "^8.2.1",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "css-loader": "^5.0.1",
+    "enzyme-to-json": "^3.6.1",
     "express": "^4.17.1",
     "jest": "^26.6.3",
     "moment": "^2.29.1",
     "node-sass": "^5.0.0",
     "normalize.css": "^8.0.1",
+    "raf": "^3.4.1",
     "react": "^17.0.1",
     "react-addons-shallow-compare": "^15.6.3",
     "react-dates": "^21.8.0",
@@ -35,10 +37,14 @@
     "build": "webpack --watch",
     "dev-server": "webpack serve",
     "start": "live-server public/",
-    "test": "jest"
+    "test": "jest --config=jest.config.js"
   },
   "devDependencies": {
     "@webpack-cli/serve": "^1.1.0",
-    "webpack-cli": "^4.2.0"
+    "@wojtekmaj/enzyme-adapter-react-17": "^0.3.2",
+    "add": "^2.0.6",
+    "enzyme": "^3.11.0",
+    "webpack-cli": "^4.2.0",
+    "yarn": "^1.22.10"
   }
 }
