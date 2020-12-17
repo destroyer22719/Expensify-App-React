@@ -1,12 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`testing the ExpenseDashboardPage 1`] = `
-<div>
-  <Connect(ExpenseListFilters) />
-  <Connect(ExpenseList) />
-</div>
-`;
-
 exports[`testing the ExpenseDashboardPage page to work properly 1`] = `
 <div>
   <Connect(ExpenseListFilters) />
