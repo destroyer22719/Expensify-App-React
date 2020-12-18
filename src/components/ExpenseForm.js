@@ -4,7 +4,6 @@ import moment from 'moment';
 import {SingleDatePicker} from 'react-dates';
 
 const now = moment();
-console.log(now.format('MMM Do, YYYY'))
 
 class ExpenseForm extends React.Component {
   constructor(props){
@@ -75,6 +74,7 @@ class ExpenseForm extends React.Component {
             onChange={this.onAmountChange}  
           />
           <SingleDatePicker 
+            id="SingleDatePicker"
             date={this.state.createdAt}
             onDateChange={this.onDateChange}
             focused={this.state.calendarFocus}
