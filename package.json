@@ -34,7 +34,8 @@
     "webpack-dev-server": "^3.11.0"
   },
   "scripts": {
-    "build": "webpack --watch",
+    "build:dev": "webpack --mode=development",
+    "build:prod": "webpack --env production--mode=production ",
     "dev-server": "webpack serve",
     "start": "live-server public/",
     "test": "jest --config=jest.config.js"
