@@ -38,8 +38,10 @@
     "build:dev": "webpack --mode=development",
     "build:prod": "webpack --env production--mode=production ",
     "dev-server": "webpack serve",
-    "start": "live-server public/",
-    "test": "jest --config=jest.config.js"
+    "serve": "live-server public/",
+    "test": "jest --config=jest.config.js",
+    "start": "node server/server.js",
+    "heroku-postbuild": "yarn run build:prod"
   },
   "devDependencies": {
     "@webpack-cli/serve": "^1.1.0",
