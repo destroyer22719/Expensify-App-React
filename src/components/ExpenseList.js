@@ -1,7 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import getVisibleExpenses from '../selectors/expenses';
+import { getExpensesTotal } from '../selectors/expenses-total';
 import ExpenseListItem from './ExpenseListItem';
+import { ExpensesSummary } from './ExpensesSummary';
 
 export const ExpenseList = props => (
   <div>
@@ -15,6 +17,7 @@ export const ExpenseList = props => (
         })
       )
     }
+    <ExpensesSummary expenseCount={props.expenses.length} expensesTotal={getExpensesTotal(props.expenses)/100}/>
   </div>
 );
 
