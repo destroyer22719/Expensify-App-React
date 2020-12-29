@@ -9,9 +9,9 @@ import configureStore from './store/configureStore';
 import { setTextFilter } from './actions/filters';
 import getVisibleExpenses from './selectors/expenses';
 import 'react-dates/lib/css/_datepicker.css';
+import './firebase/firebase';
 
-
-
+app;
 const store = configureStore; 
 // store.dispatch(setTextFilter('Bill'))
 const state = store.getState();
