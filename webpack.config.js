@@ -30,7 +30,7 @@ module.exports = env => {
 
 
   console.log(envConfig);
-  
+  console.log(process.env.FIREBASE_APP_ID);
   return {
     plugins: [
       new MiniCssExtractPlugin(),
