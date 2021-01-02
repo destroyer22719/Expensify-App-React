@@ -1,24 +1,24 @@
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const webpack = require('webpack');
-const dotenv = require('dotenv');
 
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
-// if (process.env.NODE_ENV === 'test') {
-//   require('dotenv').config({path: '.env.test'});
-// } else if (process.NODE_ENV === 'development') {
-//   require('dotenv').config({path: '.env.development'});
-// };
+if (process.env.NODE_ENV === 'test') {
+  require('dotenv').config({path: '.env.test'});
+} else if (process.env.NODE_ENV === 'development') {
+  require('dotenv').config({path: '.env.development'});
+};
 
 module.exports = env => {
   const isProduction = env['production--mode'] === 'production';
   let envConfig = {};
-  process.env.NODE_ENV === 'development' || process.env.NODE_ENV === 'test' ?
+  // process.env.NODE_ENV === 'development' || process.env.NODE_ENV === 'test' ?
+  // envConfig = {
+  //   'process.env': JSON.stringify(dotenv.config({path: process.env.NODE_ENV === 'development' ? '.env.development' : '.env.test'}).parsed)
+  // }: 
   envConfig = {
-    'process.env': JSON.stringify(dotenv.config({path: process.env.NODE_ENV === 'development' ? '.env.development' : '.env.test'}).parsed)
-  }: 
-  envConfig = {
+    'process.env.TEST': JSON.stringify(process.env.TEST),
     'process.env.FIREBASE_API_KEY': JSON.stringify(process.env.FIREBASE_API_KEY),
     'process.env.FIREBASE_AUTH_DOMAIN': JSON.stringify(process.env.FIREBASE_AUTH_DOMAIN),
     'process.env.FIREBASE_DATABASE_URL': JSON.stringify(process.env.FIREBASE_DATABASE_URL),
@@ -31,9 +31,6 @@ module.exports = env => {
 
   console.log(envConfig);
   console.log(process.env);
-
-  console.log(process.env.FIREBASE_APP_ID);
-  console.log(process.env.NODE_ENV);
 
   return {
     plugins: [
