@@ -1,6 +1,8 @@
 import firebase from 'firebase';
 import { set } from 'numeral';
 
+console.log(process.env);
+
 firebase.initializeApp({
   apiKey: "AIzaSyCgg8jnaEJGaosTjMjtrt1dnFvqpyF98jM",
     authDomain: "react-expensify-30190.firebaseapp.com",
