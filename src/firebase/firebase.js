@@ -10,14 +10,7 @@ const firebaseConfigEnv = {
   appId: process.env.FIREBASE_APP_ID,
 }
 
-console.log(process.env.FIREBASE_API_KEY);
-
 firebase.initializeApp(firebaseConfigEnv);
-
-console.log(firebaseConfig);
-console.log(firebaseConfigEnv);
-
-console.log(process.env.TEST);
 
 const database = firebase.database();
 // database.ref('expenses').on('child_removed', snapshot => {
