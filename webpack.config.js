@@ -29,7 +29,8 @@ module.exports = env => {
   };
 
 
-
+  console.log(envConfig);
+  
   return {
     plugins: [
       new MiniCssExtractPlugin(),

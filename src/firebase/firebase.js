@@ -1,6 +1,7 @@
 import firebase from 'firebase';
 
 try {
+  console.log(process.env);
   firebase.initializeApp({
     apiKey: process.env.FIREBASE_API_KEY,
     authDomain: process.env.FIREBASE_AUTH_DOMAIN,
