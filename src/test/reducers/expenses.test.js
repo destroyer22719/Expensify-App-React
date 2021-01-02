@@ -55,3 +55,13 @@ test('should not edit an expense', () => {
   const state = expensesReducer(expensesData, action);
   expect(state).toEqual(expensesData);
 });
+
+test('should set expenses', () => {
+  const actions = {
+    type: 'SET_EXPENSES',
+    expenses: [expensesData[1]]
+  };
+
+  const state = expensesReducer(expenses, actions);
+  expect(state).toEqual([expenses[1]]);
+});

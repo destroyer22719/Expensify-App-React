@@ -163,7 +163,6 @@ const store = createStore(
 store.subscribe(() => {
   const state = store.getState();
   const visibleExpenses = getVisibleExpenses(state.expenses, state.filter);
-  console.log(visibleExpenses);
 })
 
 // store.dispatch(setStartDate(123))
