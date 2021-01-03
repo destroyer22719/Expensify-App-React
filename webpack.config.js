@@ -28,10 +28,6 @@ module.exports = env => {
     'process.env.FIREBASE_APP_ID': JSON.stringify(process.env.FIREBASE_APP_ID)
   };
 
-
-  console.log(envConfig);
-  console.log(process.env);
-
   return {
     plugins: [
       new MiniCssExtractPlugin(),
