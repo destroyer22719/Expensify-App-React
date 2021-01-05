@@ -5,7 +5,10 @@ const authReducer = (state = {}, action) => {
         uid: action.uid,
       };
     case 'LOGOUT':
-      return state;
+      return {
+        ...state,
+        uid: undefined,
+      };
     default:
       return state;
   }
