@@ -7,8 +7,8 @@ const Header = ({startLogout}) => (
   <header>
     <h1>Expensify App</h1>
     <ul>
-      <li><NavLink to="/dashboard" activeClassName="active" >Home</NavLink></li>
-      <li><NavLink to="/create" activeClassName="active"> Create</NavLink></li>
+      <li><NavLink to="/dashboard" activeClassName="active">Dashboard</NavLink></li>
+      <li><NavLink to="/create" activeClassName="active">Create</NavLink></li>
       <li><NavLink to="/help" activeClassName="active" >Help</NavLink></li>
     </ul>
     <button onClick={startLogout}>Logout</button>
