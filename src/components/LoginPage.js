@@ -9,7 +9,7 @@ class LoginPage extends React.Component {
 
   render(){
     return (
-      <div>
+      <div className="box-layout">
         <button onClick={this.props.startLogin}>Login</button>
       </div>
     )
