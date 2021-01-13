@@ -58,7 +58,8 @@ module.exports = env => {
             {
               loader: 'css-loader',
               options: {
-                sourceMap: true
+                sourceMap: true,
+                url: false
               }
             },
             { 
