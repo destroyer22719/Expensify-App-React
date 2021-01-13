@@ -11,6 +11,7 @@ import { startSetExpenses } from './actions/expenses';
 import { login, logout } from './actions/auth';
 import LoadingPage from './components/LoadingPage';
 
+
 const store = configureStore;
 const jsx = (
   <Provider store={store}>
