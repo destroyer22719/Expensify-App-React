@@ -8,7 +8,6 @@ const PublicRoute = ({
   component: Component,
   ...rest
 }) => {
-  console.log(rest);
   return (
   <Route {...rest} component={(props) => (
     isAuthenticated ? (
